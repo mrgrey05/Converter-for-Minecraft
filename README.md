@@ -1,2 +1,2 @@
-# Converter-for-Minecraft
-Converter for Minecraft, made entirely on Windows Forms, C#
+# Converter-for-Minecraft > CFM
+Конвертер для Майнкрафта, сделанный полностью на Windows Forms, C#.
