@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using CFM.Properties;
+using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CFM
@@ -17,74 +14,23 @@ namespace CFM
         private TextBox lastFocusedTextBox = null;
         private bool shouldResetOnNextInput = false;
         private bool isContentSelected = false;
-        private Main main;
-        private Point _offset;
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
         public SmallWindow(Main main)
         {
             InitializeComponent();
 
-            comboBoxConvert1.SelectedIndex = 0;
-            comboBoxConvert2.SelectedIndex = 1;
-
-            textBoxConvert1.TextChanged += TextBox_TextChanged;
-            textBoxConvert2.TextChanged += TextBox_TextChanged;
-            comboBoxConvert1.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
-            comboBoxConvert2.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
-            textBoxConvert1.Enter += TextBox_Enter;
-            textBoxConvert2.Enter += TextBox_Enter;
-            textBoxConvert1.MouseUp += TextBox_MouseUp;
-            textBoxConvert2.MouseUp += TextBox_MouseUp;
-
             textBoxConvert1.Font = new Font(textBoxConvert1.Font, FontStyle.Bold);
-            this.main = main;
             textBoxConvert1.Text = "0";
             textBoxConvert2.Text = "0";
             this.ControlBox = false;
 
             ApplySettings();
+            ApplyBigFontSize();
+            LoadLanguage();
+            ApplyConverterdWords();
         }
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseDown(e);
-
-            if (e.Button == MouseButtons.Left)
-            {
-                _offset = new Point(e.X, e.Y);
-                this.Capture = true; // Захватываем мышь
-            }
-        }
-
-        protected override void OnMouseMove(MouseEventArgs e)
-        {
-            base.OnMouseMove(e);
-
-            if (this.Capture)
-            {
-                Point newLocation = this.Location;
-                newLocation.Offset(e.X - _offset.X, e.Y - _offset.Y);
-                this.Location = newLocation;
-            }
-        }
-
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            base.OnMouseUp(e);
-
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Capture = false; // Отпускаем мышь
-            }
-        }
-        private void TextBox_MouseUp(object sender, MouseEventArgs e)
-        {
-            SetTextBoxFocus((TextBox)sender);
-        }
-
-        private void TextBox_Enter(object sender, EventArgs e)
-        {
-            SetTextBoxFocus((TextBox)sender);
-        }
-
         private void SetTextBoxFocus(TextBox textBox)
         {
             SetResetFlag(textBox);
@@ -93,7 +39,6 @@ namespace CFM
             isContentSelected = true;
             lastFocusedTextBox = textBox;
         }
-
         private void SetResetFlag(TextBox textBox)
         {
             if (lastFocusedTextBox != null && lastFocusedTextBox != textBox)
@@ -148,16 +93,6 @@ namespace CFM
             PerformConversion(textBox);
             isConverting = false;
         }
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (isConverting) return;
-            isConverting = true;
-
-            PerformConversion(textBoxConvert1);
-            PerformConversion(textBoxConvert2);
-            isConverting = false;
-        }
-
         private void PerformConversion(TextBox textBox)
         {
             ComboBox fromComboBox = (textBox == textBoxConvert1) ? comboBoxConvert1 : comboBoxConvert2;
@@ -183,7 +118,7 @@ namespace CFM
                 string otherTextBoxName = (textBox == textBoxConvert1) ? textBoxConvert2.Name : textBoxConvert1.Name;
                 TextBox otherTextBox = (TextBox)this.Controls.Find(otherTextBoxName, true)[0];
                 otherTextBox.Text = convertedValue.ToString();
-                remainderLabel.Text = $"Остаток: {remainder}";
+                remainderLabel.Text = $"{Resources.MainFormRemainder}: {remainder}";
             }
             catch (ArgumentException ex)
             {
@@ -196,19 +131,6 @@ namespace CFM
                 MessageBox.Show("Произошла ошибка: " + ex.Message);
             }
         }
-
-        private void textBoxConvert1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            HandleKeyPress(e, textBox);
-        }
-
-        private void textBoxConvert2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            HandleKeyPress(e, textBox);
-        }
-
         private void HandleKeyPress(KeyPressEventArgs e, TextBox textBox)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != (char)Keys.Back)
@@ -222,6 +144,44 @@ namespace CFM
                     e.Handled = true;
                 }
             }
+        }
+        /// #######################################################
+        /// #######################################################
+        ///           Обработчики элементов управления
+        /// #######################################################
+        /// #######################################################
+        private void TextBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            SetTextBoxFocus((TextBox)sender);
+        }
+        private void TextBox_Enter(object sender, EventArgs e)
+        {
+            SetTextBoxFocus((TextBox)sender);
+        }
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isConverting) return;
+            isConverting = true;
+
+            if (lastFocusedTextBox == textBoxConvert1)
+            {
+                PerformConversion(textBoxConvert1);
+            }
+            else
+            {
+                PerformConversion(textBoxConvert2);
+            }
+            isConverting = false;
+        }
+        private void textBoxConvert1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            HandleKeyPress(e, textBox);
+        }
+        private void textBoxConvert2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            HandleKeyPress(e, textBox);
         }
         private void ButtonPanelButtons_Click(object sender, EventArgs e)
         {
@@ -258,7 +218,7 @@ namespace CFM
                         lastFocusedTextBox.SelectionStart = lastFocusedTextBox.Text.Length;
                     }
                     break;
-                case "CE":
+                case "C":
                     lastFocusedTextBox.Text = "0";
                     lastFocusedTextBox.SelectionStart = lastFocusedTextBox.Text.Length;
                     break;
@@ -284,64 +244,211 @@ namespace CFM
                     break;
             }
         }
-
         private void Back_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+        private void textBoxConvert1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                string valueCopy = textBoxConvert1.SelectedText;
+                if (double.TryParse(valueCopy, out double value))
+                {
+                    Clipboard.SetText(valueCopy);
+                }
+                else
+                {
+                    MessageBox.Show("Выделите только числовое значение для копирования.");
+                }
+                e.SuppressKeyPress = true;
+            }
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                var valueClipboard = Clipboard.GetText();
+
+                if (double.TryParse(valueClipboard, out double value))
+                {
+                    textBoxConvert1.Text = "";
+                    int selectionTextBox = textBoxConvert1.SelectionStart;
+                    textBoxConvert1.Text = textBoxConvert1.Text.Insert(selectionTextBox, valueClipboard);
+                    textBoxConvert1.SelectionStart = selectionTextBox + valueClipboard.Length;
+                    e.SuppressKeyPress = true;
+                }
+                else
+                {
+                    MessageBox.Show("Вставьте только числовое значение.");
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+        private void textBoxConvert2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                string valueCopy = textBoxConvert2.SelectedText;
+                if (double.TryParse(valueCopy, out double value))
+                {
+                    Clipboard.SetText(valueCopy);
+                }
+                else
+                {
+                    MessageBox.Show("Выделите только числовое значение для копирования.");
+                }
+                e.SuppressKeyPress = true;
+            }
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                var valueClipboard = Clipboard.GetText();
+
+                if (double.TryParse(valueClipboard, out double value))
+                {
+                    textBoxConvert2.Text = "";
+                    int selectionTextBox = textBoxConvert2.SelectionStart;
+                    textBoxConvert2.Text = textBoxConvert2.Text.Insert(selectionTextBox, valueClipboard);
+                    textBoxConvert2.SelectionStart = selectionTextBox + valueClipboard.Length;
+                    e.SuppressKeyPress = true;
+
+                }
+                else
+                {
+                    MessageBox.Show("Вставьте только числовое значение.");
+                    e.SuppressKeyPress = true;
+                }
+            }
+        }
+        private void panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+        private void panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                // Вычисление новой позиции окна
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+        private void panel_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        /// #######################################################
+        /// #######################################################
+        ///                Настройки приложения
+        /// #######################################################
+        /// #######################################################
         private void ApplySettings()
         {
             if (Properties.Settings.Default.IsDarkTheme)
             {
                 comboBoxConvert1.FlatStyle = FlatStyle.Flat;
                 comboBoxConvert2.FlatStyle = FlatStyle.Flat;
-                this.BackColor = Color.FromArgb(64, 64, 64);
+                this.BackColor = Color.FromArgb(32, 34, 36);
                 this.ForeColor = Color.White;
-                panelLeft.BackColor = Color.FromArgb(64, 64, 64);
+                panelLeft.BackColor = Color.FromArgb(32, 34, 36);
                 panelLeft.ForeColor = Color.White;
-                panelTop.BackColor = Color.FromArgb(64, 64, 64);
-                panelTop.ForeColor = Color.White;
-                tableLayoutPanel1.BackColor = Color.FromArgb(64, 64, 64);
-                tableLayoutPanel1.ForeColor = Color.White;
-                ClearAllResults.FlatStyle = FlatStyle.Flat;
-                Clear.FlatStyle = FlatStyle.Flat;
-                Nine.FlatStyle = FlatStyle.Flat;
-                Eight.FlatStyle = FlatStyle.Flat;
-                Seven.FlatStyle = FlatStyle.Flat;
-                Six.FlatStyle = FlatStyle.Flat;
-                Five.FlatStyle = FlatStyle.Flat;
-                Four.FlatStyle = FlatStyle.Flat;
-                Three.FlatStyle = FlatStyle.Flat;
-                Two.FlatStyle = FlatStyle.Flat;
-                One.FlatStyle = FlatStyle.Flat;
-                Zero.FlatStyle = FlatStyle.Flat;
-                Comma.FlatStyle = FlatStyle.Flat;
+                tableLayoutPanelButtons.BackColor = Color.FromArgb(32, 34, 36);
+                tableLayoutPanelButtons.ForeColor = Color.White;
+                textBoxConvert1.BorderStyle = BorderStyle.None;
+                textBoxConvert2.BorderStyle = BorderStyle.None;
+
+                ClearAllResults.FlatStyle = FlatStyle.Standard;
+                ClearAllResults.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                ClearAllResults.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                ClearAllResults.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Nine.FlatStyle = FlatStyle.Standard;
+                Nine.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Nine.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Nine.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Eight.FlatStyle = FlatStyle.Standard;
+                Eight.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Eight.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Eight.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Seven.FlatStyle = FlatStyle.Standard;
+                Seven.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Seven.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Seven.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Six.FlatStyle = FlatStyle.Standard;
+                Six.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Six.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Six.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Five.FlatStyle = FlatStyle.Standard;
+                Five.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Five.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Five.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Four.FlatStyle = FlatStyle.Standard;
+                Four.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Four.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Four.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Three.FlatStyle = FlatStyle.Standard;
+                Three.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Three.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Three.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Two.FlatStyle = FlatStyle.Standard;
+                Two.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Two.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Two.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                One.FlatStyle = FlatStyle.Standard;
+                One.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                One.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                One.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Zero.FlatStyle = FlatStyle.Standard;
+                Zero.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Zero.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Zero.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Comma.FlatStyle = FlatStyle.Standard;
+                Comma.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Comma.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Comma.ClickColor = Color.FromArgb(255, 59, 62, 65);
+
+                Clear.FlatStyle = FlatStyle.Standard;
+                Clear.BaseColor = Color.FromArgb(255, 48, 51, 53);
+                Clear.HoverColor = Color.FromArgb(255, 54, 59, 61);
+                Clear.ClickColor = Color.FromArgb(255, 59, 62, 65);
 
                 foreach (Control control in panelLeft.Controls)
                 {
                     if (control is TextBox)
                     {
-                        control.BackColor = Color.FromArgb(64, 64, 64);
+                        control.BackColor = Color.FromArgb(255, 42, 45, 49);
                         control.ForeColor = Color.White;
                     }
                     if (control is ComboBox)
                     {
-                        control.BackColor = Color.FromArgb(64, 64, 64);
+                        control.BackColor = Color.FromArgb(255, 42, 45, 49);
                         control.ForeColor = Color.White;
                     }
                 }
 
-                foreach (Control control in tableLayoutPanel1.Controls)
+                foreach (Control control in tableLayoutPanelButtons.Controls)
                 {
                     if (control is Button)
                     {
-                        control.BackColor = Color.FromArgb(64, 64, 64);
+                        control.BackColor = Color.FromArgb(32, 34, 36);
                         control.ForeColor = Color.White;
                     }
                 }
-                Back.ForeColor = Color.Black;
-                ClearAllResults.ForeColor = Color.FromArgb(212, 73, 49);
+                menuStrip.BackColor = Color.FromArgb(38, 41, 43);
+                вернутьсяToolStripMenuItem.ForeColor = Color.White;
+
+                ClearAllResults.ForeColor = Color.FromArgb(255, 143, 46, 29);
             }
             else
             {
@@ -351,23 +458,75 @@ namespace CFM
                 this.ForeColor = SystemColors.ControlText;
                 panelLeft.BackColor = SystemColors.Control;
                 panelLeft.ForeColor = SystemColors.ControlText;
-                panelTop.BackColor = SystemColors.Control;
-                panelTop.ForeColor = SystemColors.ControlText;
-                tableLayoutPanel1.BackColor = SystemColors.Control;
-                tableLayoutPanel1.ForeColor = SystemColors.ControlText;
+                tableLayoutPanelButtons.BackColor = SystemColors.Control;
+                tableLayoutPanelButtons.ForeColor = SystemColors.ControlText;
+                textBoxConvert1.BorderStyle = BorderStyle.Fixed3D;
+                textBoxConvert2.BorderStyle = BorderStyle.Fixed3D;
+
                 ClearAllResults.FlatStyle = FlatStyle.Standard;
-                Clear.FlatStyle = FlatStyle.Standard;
+                ClearAllResults.BaseColor = Color.White;
+                ClearAllResults.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                ClearAllResults.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Nine.FlatStyle = FlatStyle.Standard;
+                Nine.BaseColor = Color.White;
+                Nine.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Nine.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Eight.FlatStyle = FlatStyle.Standard;
+                Eight.BaseColor = Color.White;
+                Eight.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Eight.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Seven.FlatStyle = FlatStyle.Standard;
+                Seven.BaseColor = Color.White;
+                Seven.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Seven.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Six.FlatStyle = FlatStyle.Standard;
+                Six.BaseColor = Color.White;
+                Six.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Six.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Five.FlatStyle = FlatStyle.Standard;
+                Five.BaseColor = Color.White;
+                Five.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Five.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Four.FlatStyle = FlatStyle.Standard;
+                Four.BaseColor = Color.White;
+                Four.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Four.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Three.FlatStyle = FlatStyle.Standard;
+                Three.BaseColor = Color.White;
+                Three.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Three.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Two.FlatStyle = FlatStyle.Standard;
+                Two.BaseColor = Color.White;
+                Two.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Two.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 One.FlatStyle = FlatStyle.Standard;
+                One.BaseColor = Color.White;
+                One.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                One.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Zero.FlatStyle = FlatStyle.Standard;
+                Zero.BaseColor = Color.White;
+                Zero.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Zero.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
                 Comma.FlatStyle = FlatStyle.Standard;
+                Comma.BaseColor = Color.White;
+                Comma.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Comma.ClickColor = Color.FromArgb(255, 225, 225, 225);
+
+                Clear.FlatStyle = FlatStyle.Standard;
+                Clear.BaseColor = Color.White;
+                Clear.HoverColor = Color.FromArgb(255, 231, 231, 231);
+                Clear.ClickColor = Color.FromArgb(255, 225, 225, 225);
 
                 foreach (Control control in panelLeft.Controls)
                 {
@@ -383,7 +542,7 @@ namespace CFM
                     }
                 }
 
-                foreach (Control control in tableLayoutPanel1.Controls)
+                foreach (Control control in tableLayoutPanelButtons.Controls)
                 {
                     if (control is Button)
                     {
@@ -391,8 +550,44 @@ namespace CFM
                         control.ForeColor = SystemColors.ControlText;
                     }
                 }
-                ClearAllResults.ForeColor = Color.FromArgb(186, 30, 2);
+                menuStrip.BackColor = Color.White;
+                вернутьсяToolStripMenuItem.ForeColor = Color.Black;
+
+                ClearAllResults.ForeColor = Color.Maroon;
             }
+        }
+        private void ApplyBigFontSize()
+        {
+            if (Properties.Settings.Default.IsBigSizeFont)
+            {
+                this.Font = new Font("Microsoft Sans Serif", 12);
+            }
+            else
+            {
+                this.Font = new Font("Microsoft Sans Serif", 8.25F);
+            }
+        }
+        private void LoadLanguage()
+        {
+            string savedLanguage = Properties.Settings.Default.Language;
+            CultureInfo ci = new CultureInfo(savedLanguage);
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+
+            вернутьсяToolStripMenuItem.Text = Resources.SmallWindowBack;
+        }
+        private void ApplyConverterdWords()
+        {
+            comboBoxConvert1.Items.Clear();
+            comboBoxConvert2.Items.Clear();
+            comboBoxConvert1.Items.Add(Resources.ConverterBlock);
+            comboBoxConvert1.Items.Add(Resources.ConverterStack);
+            comboBoxConvert1.Items.Add(Resources.ConverterShulker);
+            comboBoxConvert2.Items.Add(Resources.ConverterBlock);
+            comboBoxConvert2.Items.Add(Resources.ConverterStack);
+            comboBoxConvert2.Items.Add(Resources.ConverterShulker);
+            comboBoxConvert1.SelectedIndex = 0;
+            comboBoxConvert2.SelectedIndex = 1;
         }
     }
 }

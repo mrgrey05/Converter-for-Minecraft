@@ -1,6 +1,6 @@
 ﻿namespace CFM
 {
-    partial class About
+    partial class Reference
     {
         /// <summary>
         /// Required designer variable.
@@ -58,7 +58,7 @@
             this.labelVersion2.Name = "labelVersion2";
             this.labelVersion2.Size = new System.Drawing.Size(28, 13);
             this.labelVersion2.TabIndex = 3;
-            this.labelVersion2.Text = "v0.3";
+            this.labelVersion2.Text = "v0.4";
             // 
             // labelVersion
             // 
@@ -98,7 +98,6 @@
             this.MaximumSize = new System.Drawing.Size(400, 150);
             this.MinimumSize = new System.Drawing.Size(400, 150);
             this.Name = "About";
-            this.Text = "About";
             this.gInfo.ResumeLayout(false);
             this.gInfo.PerformLayout();
             this.ResumeLayout(false);
