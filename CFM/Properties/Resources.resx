@@ -127,7 +127,7 @@
     <value>Other</value>
   </data>
   <data name="SettingsLabelBigSizeFont" xml:space="preserve">
-    <value>Larger font size</value>
+    <value>Larger font size:</value>
   </data>
   <data name="SettingsLabelLanguage" xml:space="preserve">
     <value>Language:</value>
@@ -145,7 +145,7 @@
     <value>File</value>
   </data>
   <data name="MainFormMiniWindow" xml:space="preserve">
-    <value>Mini-window</value>
+    <value>Mini-window           F5</value>
   </data>
   <data name="ThemeLangLight" xml:space="preserve">
     <value>Light</value>
@@ -178,7 +178,7 @@
     <value>Unsupported combination of units of measurement.</value>
   </data>
   <data name="ConverterUnits" xml:space="preserve">
-    <value>units</value>
+    <value>blocks</value>
   </data>
   <data name="ConverterStacks" xml:space="preserve">
     <value>stacks</value>
@@ -197,5 +197,32 @@
   </data>
   <data name="SmallWindowBack" xml:space="preserve">
     <value>Back</value>
+  </data>
+  <data name="MainFormTopMost" xml:space="preserve">
+    <value>Top of other windows</value>
+  </data>
+  <data name="SettingsOtherRemainder" xml:space="preserve">
+    <value>Otherwise "remainder"</value>
+  </data>
+  <data name="ConverterShulkers" xml:space="preserve">
+    <value>shulkers</value>
+  </data>
+  <data name="ThemeLangCustom" xml:space="preserve">
+    <value>&lt;Custom...&gt;</value>
+  </data>
+  <data name="MainFormStackX16" xml:space="preserve">
+    <value>Stack (x16)</value>
+  </data>
+  <data name="PointDigit" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ThemeCustomChoiceColor" xml:space="preserve">
+    <value>Color selection</value>
+  </data>
+  <data name="ThemeCustomAppearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="ThemeCustomText" xml:space="preserve">
+    <value>Text</value>
   </data>
 </root>

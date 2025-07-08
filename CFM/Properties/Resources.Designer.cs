@@ -88,6 +88,15 @@ namespace CFM.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на shulkers.
+        /// </summary>
+        internal static string ConverterShulkers {
+            get {
+                return ResourceManager.GetString("ConverterShulkers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Stack.
         /// </summary>
         internal static string ConverterStack {
@@ -106,7 +115,7 @@ namespace CFM.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на units.
+        ///   Ищет локализованную строку, похожую на blocks.
         /// </summary>
         internal static string ConverterUnits {
             get {
@@ -133,7 +142,7 @@ namespace CFM.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Mini-window.
+        ///   Ищет локализованную строку, похожую на Mini-window           F5.
         /// </summary>
         internal static string MainFormMiniWindow {
             get {
@@ -160,11 +169,38 @@ namespace CFM.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Stack (x16).
+        /// </summary>
+        internal static string MainFormStackX16 {
+            get {
+                return ResourceManager.GetString("MainFormStackX16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Converter for Minecraft.
         /// </summary>
         internal static string MainFormTitle {
             get {
                 return ResourceManager.GetString("MainFormTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Top of other windows.
+        /// </summary>
+        internal static string MainFormTopMost {
+            get {
+                return ResourceManager.GetString("MainFormTopMost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ..
+        /// </summary>
+        internal static string PointDigit {
+            get {
+                return ResourceManager.GetString("PointDigit", resourceCulture);
             }
         }
         
@@ -223,7 +259,7 @@ namespace CFM.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Larger font size.
+        ///   Ищет локализованную строку, похожую на Larger font size:.
         /// </summary>
         internal static string SettingsLabelBigSizeFont {
             get {
@@ -268,6 +304,15 @@ namespace CFM.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Otherwise &quot;remainder&quot;.
+        /// </summary>
+        internal static string SettingsOtherRemainder {
+            get {
+                return ResourceManager.GetString("SettingsOtherRemainder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Main.
         /// </summary>
         internal static string SettingsTabMain {
@@ -282,6 +327,42 @@ namespace CFM.Properties {
         internal static string SmallWindowBack {
             get {
                 return ResourceManager.GetString("SmallWindowBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Appearance.
+        /// </summary>
+        internal static string ThemeCustomAppearance {
+            get {
+                return ResourceManager.GetString("ThemeCustomAppearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Color selection.
+        /// </summary>
+        internal static string ThemeCustomChoiceColor {
+            get {
+                return ResourceManager.GetString("ThemeCustomChoiceColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Text.
+        /// </summary>
+        internal static string ThemeCustomText {
+            get {
+                return ResourceManager.GetString("ThemeCustomText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;Custom...&gt;.
+        /// </summary>
+        internal static string ThemeLangCustom {
+            get {
+                return ResourceManager.GetString("ThemeLangCustom", resourceCulture);
             }
         }
         

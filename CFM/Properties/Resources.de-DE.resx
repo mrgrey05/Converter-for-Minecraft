@@ -118,111 +118,111 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SettingsFormTitle" xml:space="preserve">
-    <value>Настройки</value>
+    <value>Einstellungen</value>
   </data>
   <data name="SettingsLabelDesign" xml:space="preserve">
-    <value>Дизайн</value>
+    <value>Design</value>
   </data>
   <data name="SettingsLabelOther" xml:space="preserve">
-    <value>Другое</value>
+    <value>Andere</value>
   </data>
   <data name="SettingsLabelBigSizeFont" xml:space="preserve">
-    <value>Увеличенный шрифт:</value>
+    <value>Größere Schriftgröße:</value>
   </data>
   <data name="SettingsLabelLanguage" xml:space="preserve">
-    <value>Язык:</value>
+    <value>Sprache:</value>
   </data>
   <data name="SettingsLabelTheme" xml:space="preserve">
-    <value>Тема приложения:</value>
+    <value>Thema für App:</value>
   </data>
   <data name="MainFormTitle" xml:space="preserve">
-    <value>Конвертер для Minecraft</value>
+    <value>Konverter für Minecraft</value>
   </data>
   <data name="SettingsTabMain" xml:space="preserve">
-    <value>Общие</value>
+    <value>Hauptsächlich</value>
   </data>
   <data name="MainFormFile" xml:space="preserve">
-    <value>Файл</value>
+    <value>Datei</value>
   </data>
   <data name="MainFormMiniWindow" xml:space="preserve">
-    <value>Мини-окно           F5</value>
+    <value>Mini-Fenster          F5</value>
   </data>
   <data name="ThemeLangLight" xml:space="preserve">
-    <value>Светлая</value>
+    <value>Licht</value>
   </data>
   <data name="ThemeLangDark" xml:space="preserve">
-    <value>Тёмная</value>
+    <value>Dunkel</value>
   </data>
   <data name="MainExit" xml:space="preserve">
-    <value>Выход</value>
+    <value>Ausfahrt</value>
   </data>
   <data name="MainFormReference" xml:space="preserve">
-    <value>Справка</value>
+    <value>Referenz</value>
   </data>
   <data name="SettingsBtnCancel" xml:space="preserve">
-    <value>Отмена</value>
+    <value>Stornieren</value>
   </data>
   <data name="ConverterBlock" xml:space="preserve">
-    <value>Блок</value>
+    <value>Block</value>
   </data>
   <data name="ConverterStack" xml:space="preserve">
-    <value>Стак</value>
+    <value>Stapel</value>
   </data>
   <data name="ConverterShulker" xml:space="preserve">
-    <value>Шалкер</value>
+    <value>Schulker</value>
   </data>
   <data name="MainFormRemainder" xml:space="preserve">
-    <value>Остаток</value>
+    <value>Rest</value>
   </data>
   <data name="ConverterExceptionArg" xml:space="preserve">
-    <value>Неподдерживаемая комбинация единиц измерения.</value>
+    <value>Nicht unterstützte Kombination von Maßeinheiten.</value>
   </data>
   <data name="ConverterUnits" xml:space="preserve">
-    <value>блоков</value>
+    <value>Blöcke</value>
   </data>
   <data name="ConverterStacks" xml:space="preserve">
-    <value>стаков</value>
+    <value>stuckey</value>
   </data>
   <data name="ReferenceAboutUs" xml:space="preserve">
-    <value>О нас</value>
+    <value>Über uns</value>
   </data>
   <data name="ReferenceFormTitle" xml:space="preserve">
-    <value>Справка</value>
+    <value>Referenz</value>
   </data>
   <data name="ReferenceEmail" xml:space="preserve">
-    <value>Почта для связи:</value>
+    <value>Mail zur Kommunikation:</value>
   </data>
   <data name="ReferenceVersion" xml:space="preserve">
-    <value>Версия приложения:</value>
+    <value>Anwendungsversion:</value>
   </data>
   <data name="SmallWindowBack" xml:space="preserve">
-    <value>Вернуться</value>
+    <value>Zurück</value>
   </data>
   <data name="MainFormTopMost" xml:space="preserve">
-    <value>Поверх остальных окон</value>
+    <value>Oben auf anderen Fenstern</value>
   </data>
   <data name="SettingsOtherRemainder" xml:space="preserve">
-    <value>Остаток "по-другому"</value>
+    <value>Andernfalls "rest"</value>
   </data>
   <data name="ConverterShulkers" xml:space="preserve">
-    <value>шалкеров</value>
+    <value>Shulkers</value>
   </data>
   <data name="ThemeLangCustom" xml:space="preserve">
-    <value>&lt;Настроить...&gt;</value>
+    <value>&lt;Benutzerdefiniert...&gt;</value>
   </data>
   <data name="MainFormStackX16" xml:space="preserve">
-    <value>Стак (x16)</value>
+    <value>Stapel (x16)</value>
   </data>
   <data name="PointDigit" xml:space="preserve">
     <value>,</value>
   </data>
   <data name="ThemeCustomChoiceColor" xml:space="preserve">
-    <value>Выбор цвета</value>
+    <value>Color selection</value>
   </data>
   <data name="ThemeCustomAppearance" xml:space="preserve">
-    <value>Внешний вид</value>
+    <value>Aussehen</value>
   </data>
   <data name="ThemeCustomText" xml:space="preserve">
-    <value>Текст</value>
+    <value>Text</value>
   </data>
 </root>

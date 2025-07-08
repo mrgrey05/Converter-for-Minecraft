@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Общие сведения об этой сборке предоставляются следующим набором
@@ -7,12 +6,13 @@ using System.Runtime.InteropServices;
 // связанных со сборкой.
 [assembly: AssemblyTitle("Converter For Minecraft")]
 [assembly: AssemblyDescription("Converter For Minecraft")]
-[assembly: AssemblyConfiguration("Release")]
+[assembly: AssemblyConfiguration("Debug")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CFM")]
 [assembly: AssemblyCopyright("by MrGrey | Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
 // для компонентов COM. Если необходимо обратиться к типу в этой сборке через
@@ -29,5 +29,6 @@ using System.Runtime.InteropServices;
 //      Номер сборки
 //      Редакция
 //
-[assembly: AssemblyVersion("0.4")]
-[assembly: AssemblyFileVersion("0.4")]
+[assembly: AssemblyVersion("0.5")]
+[assembly: AssemblyFileVersion("0.5")]
+[assembly: AssemblyInformationalVersion("0.5")]

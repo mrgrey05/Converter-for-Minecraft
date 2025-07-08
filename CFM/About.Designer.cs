@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.gInfo = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelVersion2 = new System.Windows.Forms.Label();
+            this.labelMail = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.linkLabelMail = new System.Windows.Forms.LinkLabel();
-            this.labelMail = new System.Windows.Forms.Label();
             this.gInfo.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gInfo
             // 
-            this.gInfo.Controls.Add(this.labelVersion2);
-            this.gInfo.Controls.Add(this.labelVersion);
-            this.gInfo.Controls.Add(this.linkLabelMail);
-            this.gInfo.Controls.Add(this.labelMail);
+            this.gInfo.Controls.Add(this.tableLayoutPanel1);
             this.gInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gInfo.Location = new System.Drawing.Point(0, 0);
             this.gInfo.Name = "gInfo";
@@ -51,55 +50,83 @@
             this.gInfo.TabStop = false;
             this.gInfo.Text = "О нас";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.91978F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.08022F));
+            this.tableLayoutPanel1.Controls.Add(this.labelVersion2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelMail, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelVersion, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabelMail, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 18);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(374, 88);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
             // labelVersion2
             // 
             this.labelVersion2.AutoSize = true;
-            this.labelVersion2.Location = new System.Drawing.Point(154, 66);
+            this.labelVersion2.Location = new System.Drawing.Point(170, 44);
             this.labelVersion2.Name = "labelVersion2";
-            this.labelVersion2.Size = new System.Drawing.Size(28, 13);
+            this.labelVersion2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.labelVersion2.Size = new System.Drawing.Size(22, 23);
             this.labelVersion2.TabIndex = 3;
-            this.labelVersion2.Text = "v0.4";
+            this.labelVersion2.Text = "v0.";
+            // 
+            // labelMail
+            // 
+            this.labelMail.AutoSize = true;
+            this.labelMail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelMail.Location = new System.Drawing.Point(3, 21);
+            this.labelMail.Name = "labelMail";
+            this.labelMail.Padding = new System.Windows.Forms.Padding(2, 5, 2, 5);
+            this.labelMail.Size = new System.Drawing.Size(161, 23);
+            this.labelMail.TabIndex = 0;
+            this.labelMail.Text = "Почта для связи:";
+            this.labelMail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.Location = new System.Drawing.Point(35, 66);
+            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelVersion.Location = new System.Drawing.Point(3, 44);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(112, 13);
+            this.labelVersion.Padding = new System.Windows.Forms.Padding(2, 5, 2, 5);
+            this.labelVersion.Size = new System.Drawing.Size(161, 23);
             this.labelVersion.TabIndex = 2;
             this.labelVersion.Text = "Версия приложения:";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // linkLabelMail
             // 
             this.linkLabelMail.AutoSize = true;
-            this.linkLabelMail.Location = new System.Drawing.Point(153, 44);
+            this.linkLabelMail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.linkLabelMail.Location = new System.Drawing.Point(170, 21);
             this.linkLabelMail.Name = "linkLabelMail";
-            this.linkLabelMail.Size = new System.Drawing.Size(147, 13);
+            this.linkLabelMail.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.linkLabelMail.Size = new System.Drawing.Size(201, 23);
             this.linkLabelMail.TabIndex = 1;
             this.linkLabelMail.TabStop = true;
             this.linkLabelMail.Text = "bondarev.sa.stud@gmail.com";
             this.linkLabelMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelMail_LinkClicked);
             // 
-            // labelMail
-            // 
-            this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(53, 44);
-            this.labelMail.Name = "labelMail";
-            this.labelMail.Size = new System.Drawing.Size(94, 13);
-            this.labelMail.TabIndex = 0;
-            this.labelMail.Text = "Почта для связи:";
-            // 
-            // About
+            // Reference
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 111);
             this.Controls.Add(this.gInfo);
-            this.MaximumSize = new System.Drawing.Size(400, 150);
+            this.MaximumSize = new System.Drawing.Size(800, 400);
             this.MinimumSize = new System.Drawing.Size(400, 150);
-            this.Name = "About";
+            this.Name = "Reference";
             this.gInfo.ResumeLayout(false);
-            this.gInfo.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -111,5 +138,6 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.LinkLabel linkLabelMail;
         private System.Windows.Forms.Label labelMail;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -118,109 +118,109 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SettingsFormTitle" xml:space="preserve">
-    <value>Настройки</value>
+    <value>Налаштування</value>
   </data>
   <data name="SettingsLabelDesign" xml:space="preserve">
     <value>Дизайн</value>
   </data>
   <data name="SettingsLabelOther" xml:space="preserve">
-    <value>Другое</value>
+    <value>Iнше</value>
   </data>
   <data name="SettingsLabelBigSizeFont" xml:space="preserve">
-    <value>Увеличенный шрифт:</value>
+    <value>Більший розмір шрифту:</value>
   </data>
   <data name="SettingsLabelLanguage" xml:space="preserve">
-    <value>Язык:</value>
+    <value>Мова:</value>
   </data>
   <data name="SettingsLabelTheme" xml:space="preserve">
-    <value>Тема приложения:</value>
+    <value>Тема для програми:</value>
   </data>
   <data name="MainFormTitle" xml:space="preserve">
-    <value>Конвертер для Minecraft</value>
+    <value>Конвертер для майнкрафт</value>
   </data>
   <data name="SettingsTabMain" xml:space="preserve">
-    <value>Общие</value>
+    <value>Головна</value>
   </data>
   <data name="MainFormFile" xml:space="preserve">
     <value>Файл</value>
   </data>
   <data name="MainFormMiniWindow" xml:space="preserve">
-    <value>Мини-окно           F5</value>
+    <value>Міні-вікно              F5</value>
   </data>
   <data name="ThemeLangLight" xml:space="preserve">
-    <value>Светлая</value>
+    <value>Cвітло</value>
   </data>
   <data name="ThemeLangDark" xml:space="preserve">
-    <value>Тёмная</value>
+    <value>Темний</value>
   </data>
   <data name="MainExit" xml:space="preserve">
-    <value>Выход</value>
+    <value>Вихід</value>
   </data>
   <data name="MainFormReference" xml:space="preserve">
-    <value>Справка</value>
+    <value>Довідка</value>
   </data>
   <data name="SettingsBtnCancel" xml:space="preserve">
-    <value>Отмена</value>
+    <value>Скасувати</value>
   </data>
   <data name="ConverterBlock" xml:space="preserve">
-    <value>Блок</value>
+    <value>Блокувати</value>
   </data>
   <data name="ConverterStack" xml:space="preserve">
-    <value>Стак</value>
+    <value>Стек</value>
   </data>
   <data name="ConverterShulker" xml:space="preserve">
-    <value>Шалкер</value>
+    <value>Шулкер</value>
   </data>
   <data name="MainFormRemainder" xml:space="preserve">
-    <value>Остаток</value>
+    <value>Залишок</value>
   </data>
   <data name="ConverterExceptionArg" xml:space="preserve">
-    <value>Неподдерживаемая комбинация единиц измерения.</value>
+    <value>Непідтримувана комбінація одиниць вимірювання.</value>
   </data>
   <data name="ConverterUnits" xml:space="preserve">
-    <value>блоков</value>
+    <value>блоки</value>
   </data>
   <data name="ConverterStacks" xml:space="preserve">
-    <value>стаков</value>
+    <value>стеки</value>
   </data>
   <data name="ReferenceAboutUs" xml:space="preserve">
-    <value>О нас</value>
+    <value>Про нас</value>
   </data>
   <data name="ReferenceFormTitle" xml:space="preserve">
-    <value>Справка</value>
+    <value>Довідка</value>
   </data>
   <data name="ReferenceEmail" xml:space="preserve">
-    <value>Почта для связи:</value>
+    <value>Пошта для зв'язку:</value>
   </data>
   <data name="ReferenceVersion" xml:space="preserve">
-    <value>Версия приложения:</value>
+    <value>Версія програми:</value>
   </data>
   <data name="SmallWindowBack" xml:space="preserve">
-    <value>Вернуться</value>
+    <value>Назад</value>
   </data>
   <data name="MainFormTopMost" xml:space="preserve">
-    <value>Поверх остальных окон</value>
+    <value>Верх інших вікон</value>
   </data>
   <data name="SettingsOtherRemainder" xml:space="preserve">
-    <value>Остаток "по-другому"</value>
+    <value>В іншому випадку «залишок»</value>
   </data>
   <data name="ConverterShulkers" xml:space="preserve">
-    <value>шалкеров</value>
+    <value>шулкери</value>
   </data>
   <data name="ThemeLangCustom" xml:space="preserve">
-    <value>&lt;Настроить...&gt;</value>
+    <value>&lt;Користувацький...&gt;</value>
   </data>
   <data name="MainFormStackX16" xml:space="preserve">
-    <value>Стак (x16)</value>
+    <value>Стек (x16)</value>
   </data>
   <data name="PointDigit" xml:space="preserve">
     <value>,</value>
   </data>
   <data name="ThemeCustomChoiceColor" xml:space="preserve">
-    <value>Выбор цвета</value>
+    <value>Вибір кольору</value>
   </data>
   <data name="ThemeCustomAppearance" xml:space="preserve">
-    <value>Внешний вид</value>
+    <value>Зовнішній вигляд</value>
   </data>
   <data name="ThemeCustomText" xml:space="preserve">
     <value>Текст</value>

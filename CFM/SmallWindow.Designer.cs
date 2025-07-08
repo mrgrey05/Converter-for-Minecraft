@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelFill = new System.Windows.Forms.Panel();
+            this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.checkBoxStack16 = new System.Windows.Forms.CheckBox();
+            this.remainderLabel = new System.Windows.Forms.Label();
+            this.textBoxConvert1 = new System.Windows.Forms.TextBox();
+            this.comboBoxConvert1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxConvert2 = new System.Windows.Forms.ComboBox();
+            this.textBoxConvert2 = new System.Windows.Forms.TextBox();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.вернутьсяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanelButtons = new System.Windows.Forms.TableLayoutPanel();
             this.Comma = new CFM.Custom.CustomButton();
             this.Zero = new CFM.Custom.CustomButton();
@@ -43,31 +52,155 @@
             this.Seven = new CFM.Custom.CustomButton();
             this.Clear = new CFM.Custom.CustomButton();
             this.ClearAllResults = new CFM.Custom.CustomButton();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.remainderLabel = new System.Windows.Forms.Label();
-            this.textBoxConvert1 = new System.Windows.Forms.TextBox();
-            this.comboBoxConvert1 = new System.Windows.Forms.ComboBox();
-            this.comboBoxConvert2 = new System.Windows.Forms.ComboBox();
-            this.textBoxConvert2 = new System.Windows.Forms.TextBox();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.вернутьсяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelFill.SuspendLayout();
-            this.tableLayoutPanelButtons.SuspendLayout();
+            this.buttonShowOrHidePanelButtons = new CFM.Custom.CustomButton();
+            this.tableLayoutPanelMain.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.menuStrip.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelFill
+            // tableLayoutPanelMain
             // 
-            this.panelFill.BackColor = System.Drawing.Color.Gray;
-            this.panelFill.Controls.Add(this.tableLayoutPanel1);
-            this.panelFill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFill.Location = new System.Drawing.Point(0, 0);
-            this.panelFill.Name = "panelFill";
-            this.panelFill.Size = new System.Drawing.Size(384, 231);
-            this.panelFill.TabIndex = 0;
+            this.tableLayoutPanelMain.ColumnCount = 2;
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMain.Controls.Add(this.panelLeft, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelButtons, 1, 0);
+            this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelMain.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
+            this.tableLayoutPanelMain.RowCount = 1;
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(384, 231);
+            this.tableLayoutPanelMain.TabIndex = 0;
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.BackColor = System.Drawing.Color.White;
+            this.panelLeft.Controls.Add(this.buttonShowOrHidePanelButtons);
+            this.panelLeft.Controls.Add(this.checkBoxStack16);
+            this.panelLeft.Controls.Add(this.remainderLabel);
+            this.panelLeft.Controls.Add(this.textBoxConvert1);
+            this.panelLeft.Controls.Add(this.comboBoxConvert1);
+            this.panelLeft.Controls.Add(this.comboBoxConvert2);
+            this.panelLeft.Controls.Add(this.textBoxConvert2);
+            this.panelLeft.Controls.Add(this.menuStrip);
+            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLeft.Location = new System.Drawing.Point(0, 0);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(192, 231);
+            this.panelLeft.TabIndex = 4;
+            this.panelLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
+            this.panelLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
+            this.panelLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
+            // 
+            // checkBoxStack16
+            // 
+            this.checkBoxStack16.AutoSize = true;
+            this.checkBoxStack16.Location = new System.Drawing.Point(107, 8);
+            this.checkBoxStack16.Name = "checkBoxStack16";
+            this.checkBoxStack16.Size = new System.Drawing.Size(43, 17);
+            this.checkBoxStack16.TabIndex = 12;
+            this.checkBoxStack16.Text = "x16";
+            this.checkBoxStack16.UseVisualStyleBackColor = true;
+            this.checkBoxStack16.Click += new System.EventHandler(this.checkBoxStack16_CheckedChanged);
+            // 
+            // remainderLabel
+            // 
+            this.remainderLabel.AutoSize = true;
+            this.remainderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.remainderLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.remainderLabel.Location = new System.Drawing.Point(12, 203);
+            this.remainderLabel.Name = "remainderLabel";
+            this.remainderLabel.Size = new System.Drawing.Size(59, 15);
+            this.remainderLabel.TabIndex = 5;
+            this.remainderLabel.Text = "Остаток:";
+            // 
+            // textBoxConvert1
+            // 
+            this.textBoxConvert1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxConvert1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBoxConvert1.Location = new System.Drawing.Point(12, 44);
+            this.textBoxConvert1.Name = "textBoxConvert1";
+            this.textBoxConvert1.Size = new System.Drawing.Size(164, 38);
+            this.textBoxConvert1.TabIndex = 1;
+            this.textBoxConvert1.Tag = "";
+            this.textBoxConvert1.Text = "0";
+            this.textBoxConvert1.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBoxConvert1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConvert1_KeyDown);
+            this.textBoxConvert1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConvert1_KeyPress);
+            this.textBoxConvert1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TextBox_MouseUp);
+            // 
+            // comboBoxConvert1
+            // 
+            this.comboBoxConvert1.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxConvert1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConvert1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBoxConvert1.FormattingEnabled = true;
+            this.comboBoxConvert1.Items.AddRange(new object[] {
+            "Блок",
+            "Стак",
+            "Шалкер"});
+            this.comboBoxConvert1.Location = new System.Drawing.Point(12, 88);
+            this.comboBoxConvert1.Name = "comboBoxConvert1";
+            this.comboBoxConvert1.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxConvert1.TabIndex = 2;
+            this.comboBoxConvert1.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.comboBoxConvert1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
+            // 
+            // comboBoxConvert2
+            // 
+            this.comboBoxConvert2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxConvert2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBoxConvert2.FormattingEnabled = true;
+            this.comboBoxConvert2.Items.AddRange(new object[] {
+            "Блок",
+            "Стак",
+            "Шалкер"});
+            this.comboBoxConvert2.Location = new System.Drawing.Point(12, 172);
+            this.comboBoxConvert2.Name = "comboBoxConvert2";
+            this.comboBoxConvert2.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxConvert2.TabIndex = 4;
+            this.comboBoxConvert2.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            this.comboBoxConvert2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
+            // 
+            // textBoxConvert2
+            // 
+            this.textBoxConvert2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxConvert2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBoxConvert2.Location = new System.Drawing.Point(12, 128);
+            this.textBoxConvert2.Name = "textBoxConvert2";
+            this.textBoxConvert2.Size = new System.Drawing.Size(164, 38);
+            this.textBoxConvert2.TabIndex = 3;
+            this.textBoxConvert2.Text = "0";
+            this.textBoxConvert2.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.textBoxConvert2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConvert2_KeyDown);
+            this.textBoxConvert2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConvert2_KeyPress);
+            this.textBoxConvert2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TextBox_MouseUp);
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.вернутьсяToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(88, 25);
+            this.menuStrip.TabIndex = 10;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // вернутьсяToolStripMenuItem
+            // 
+            this.вернутьсяToolStripMenuItem.Name = "вернутьсяToolStripMenuItem";
+            this.вернутьсяToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.вернутьсяToolStripMenuItem.Text = "Вернуться";
+            this.вернутьсяToolStripMenuItem.Click += new System.EventHandler(this.Back_Click);
             // 
             // tableLayoutPanelButtons
             // 
@@ -100,7 +233,7 @@
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanelButtons.Size = new System.Drawing.Size(192, 231);
-            this.tableLayoutPanelButtons.TabIndex = 1;
+            this.tableLayoutPanelButtons.TabIndex = 5;
             this.tableLayoutPanelButtons.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.tableLayoutPanelButtons.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
             this.tableLayoutPanelButtons.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
@@ -126,6 +259,7 @@
             this.Comma.Text = ",";
             this.Comma.UseVisualStyleBackColor = false;
             this.Comma.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Comma.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Zero
             // 
@@ -148,6 +282,7 @@
             this.Zero.Text = "0";
             this.Zero.UseVisualStyleBackColor = false;
             this.Zero.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Zero.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Three
             // 
@@ -170,6 +305,7 @@
             this.Three.Text = "3";
             this.Three.UseVisualStyleBackColor = false;
             this.Three.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Three.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Two
             // 
@@ -192,6 +328,7 @@
             this.Two.Text = "2";
             this.Two.UseVisualStyleBackColor = false;
             this.Two.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Two.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // One
             // 
@@ -214,6 +351,7 @@
             this.One.Text = "1";
             this.One.UseVisualStyleBackColor = false;
             this.One.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.One.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Six
             // 
@@ -236,6 +374,7 @@
             this.Six.Text = "6";
             this.Six.UseVisualStyleBackColor = false;
             this.Six.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Six.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Five
             // 
@@ -258,6 +397,7 @@
             this.Five.Text = "5";
             this.Five.UseVisualStyleBackColor = false;
             this.Five.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Five.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Four
             // 
@@ -280,6 +420,7 @@
             this.Four.Text = "4";
             this.Four.UseVisualStyleBackColor = false;
             this.Four.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Four.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Nine
             // 
@@ -302,6 +443,7 @@
             this.Nine.Text = "9";
             this.Nine.UseVisualStyleBackColor = false;
             this.Nine.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Nine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Eight
             // 
@@ -324,6 +466,7 @@
             this.Eight.Text = "8";
             this.Eight.UseVisualStyleBackColor = false;
             this.Eight.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Eight.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Seven
             // 
@@ -346,6 +489,7 @@
             this.Seven.Text = "7";
             this.Seven.UseVisualStyleBackColor = false;
             this.Seven.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Seven.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // Clear
             // 
@@ -368,6 +512,7 @@
             this.Clear.Text = "<";
             this.Clear.UseVisualStyleBackColor = false;
             this.Clear.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.Clear.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
             // ClearAllResults
             // 
@@ -390,133 +535,29 @@
             this.ClearAllResults.Text = "C";
             this.ClearAllResults.UseVisualStyleBackColor = false;
             this.ClearAllResults.Click += new System.EventHandler(this.ButtonPanelButtons_Click);
+            this.ClearAllResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FunctionalKeys_KeyDown);
             // 
-            // panelLeft
+            // buttonShowOrHidePanelButtons
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.White;
-            this.panelLeft.Controls.Add(this.remainderLabel);
-            this.panelLeft.Controls.Add(this.textBoxConvert1);
-            this.panelLeft.Controls.Add(this.comboBoxConvert1);
-            this.panelLeft.Controls.Add(this.comboBoxConvert2);
-            this.panelLeft.Controls.Add(this.textBoxConvert2);
-            this.panelLeft.Controls.Add(this.menuStrip);
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(0);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(192, 231);
-            this.panelLeft.TabIndex = 1;
-            this.panelLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
-            this.panelLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
-            this.panelLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_MouseUp);
-            // 
-            // remainderLabel
-            // 
-            this.remainderLabel.AutoSize = true;
-            this.remainderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.remainderLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.remainderLabel.Location = new System.Drawing.Point(12, 203);
-            this.remainderLabel.Name = "remainderLabel";
-            this.remainderLabel.Size = new System.Drawing.Size(59, 15);
-            this.remainderLabel.TabIndex = 5;
-            this.remainderLabel.Text = "Остаток:";
-            // 
-            // textBoxConvert1
-            // 
-            this.textBoxConvert1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxConvert1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.textBoxConvert1.Location = new System.Drawing.Point(12, 44);
-            this.textBoxConvert1.Name = "textBoxConvert1";
-            this.textBoxConvert1.Size = new System.Drawing.Size(164, 38);
-            this.textBoxConvert1.TabIndex = 1;
-            this.textBoxConvert1.Tag = "";
-            this.textBoxConvert1.Text = "0";
-            this.textBoxConvert1.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.textBoxConvert1.Enter += new System.EventHandler(this.TextBox_Enter);
-            this.textBoxConvert1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConvert1_KeyDown);
-            this.textBoxConvert1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConvert1_KeyPress);
-            this.textBoxConvert1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TextBox_MouseUp);
-            // 
-            // comboBoxConvert1
-            // 
-            this.comboBoxConvert1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxConvert1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxConvert1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBoxConvert1.FormattingEnabled = true;
-            this.comboBoxConvert1.Items.AddRange(new object[] {
-            "Блок",
-            "Стак",
-            "Шалкер"});
-            this.comboBoxConvert1.Location = new System.Drawing.Point(12, 88);
-            this.comboBoxConvert1.Name = "comboBoxConvert1";
-            this.comboBoxConvert1.Size = new System.Drawing.Size(151, 28);
-            this.comboBoxConvert1.TabIndex = 2;
-            this.comboBoxConvert1.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            // 
-            // comboBoxConvert2
-            // 
-            this.comboBoxConvert2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxConvert2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBoxConvert2.FormattingEnabled = true;
-            this.comboBoxConvert2.Items.AddRange(new object[] {
-            "Блок",
-            "Стак",
-            "Шалкер"});
-            this.comboBoxConvert2.Location = new System.Drawing.Point(12, 172);
-            this.comboBoxConvert2.Name = "comboBoxConvert2";
-            this.comboBoxConvert2.Size = new System.Drawing.Size(151, 28);
-            this.comboBoxConvert2.TabIndex = 4;
-            this.comboBoxConvert2.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
-            // 
-            // textBoxConvert2
-            // 
-            this.textBoxConvert2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxConvert2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.textBoxConvert2.Location = new System.Drawing.Point(12, 128);
-            this.textBoxConvert2.Name = "textBoxConvert2";
-            this.textBoxConvert2.Size = new System.Drawing.Size(164, 38);
-            this.textBoxConvert2.TabIndex = 3;
-            this.textBoxConvert2.Text = "0";
-            this.textBoxConvert2.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            this.textBoxConvert2.Enter += new System.EventHandler(this.TextBox_Enter);
-            this.textBoxConvert2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxConvert2_KeyDown);
-            this.textBoxConvert2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConvert2_KeyPress);
-            this.textBoxConvert2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TextBox_MouseUp);
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.вернутьсяToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(83, 24);
-            this.menuStrip.TabIndex = 10;
-            this.menuStrip.Text = "menuStrip1";
-            // 
-            // вернутьсяToolStripMenuItem
-            // 
-            this.вернутьсяToolStripMenuItem.Name = "вернутьсяToolStripMenuItem";
-            this.вернутьсяToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.вернутьсяToolStripMenuItem.Text = "Вернуться";
-            this.вернутьсяToolStripMenuItem.Click += new System.EventHandler(this.Back_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panelLeft, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelButtons, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 231);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.buttonShowOrHidePanelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonShowOrHidePanelButtons.BackColor = System.Drawing.Color.White;
+            this.buttonShowOrHidePanelButtons.BaseColor = System.Drawing.Color.White;
+            this.buttonShowOrHidePanelButtons.ClickColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+            this.buttonShowOrHidePanelButtons.CornerRadius = 5;
+            this.buttonShowOrHidePanelButtons.FlatAppearance.BorderSize = 0;
+            this.buttonShowOrHidePanelButtons.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonShowOrHidePanelButtons.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonShowOrHidePanelButtons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShowOrHidePanelButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonShowOrHidePanelButtons.ForeColor = System.Drawing.Color.Black;
+            this.buttonShowOrHidePanelButtons.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonShowOrHidePanelButtons.Location = new System.Drawing.Point(156, 1);
+            this.buttonShowOrHidePanelButtons.Name = "buttonShowOrHidePanelButtons";
+            this.buttonShowOrHidePanelButtons.Size = new System.Drawing.Size(35, 35);
+            this.buttonShowOrHidePanelButtons.TabIndex = 13;
+            this.buttonShowOrHidePanelButtons.Text = "⮜";
+            this.buttonShowOrHidePanelButtons.UseVisualStyleBackColor = false;
+            this.buttonShowOrHidePanelButtons.Click += new System.EventHandler(this.buttonShowOrHidePanelButtons_Click);
             // 
             // SmallWindow
             // 
@@ -524,34 +565,34 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(384, 231);
-            this.Controls.Add(this.panelFill);
-            this.MainMenuStrip = this.menuStrip;
+            this.Controls.Add(this.tableLayoutPanelMain);
             this.MaximumSize = new System.Drawing.Size(600, 400);
             this.MinimumSize = new System.Drawing.Size(400, 270);
             this.Name = "SmallWindow";
             this.TopMost = true;
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TextBox_MouseUp);
-            this.panelFill.ResumeLayout(false);
-            this.tableLayoutPanelButtons.ResumeLayout(false);
+            this.tableLayoutPanelMain.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelFill;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelButtons;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Label remainderLabel;
         private System.Windows.Forms.TextBox textBoxConvert1;
         private System.Windows.Forms.ComboBox comboBoxConvert1;
         private System.Windows.Forms.ComboBox comboBoxConvert2;
         private System.Windows.Forms.TextBox textBoxConvert2;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem вернутьсяToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelButtons;
         private Custom.CustomButton Comma;
         private Custom.CustomButton Zero;
         private Custom.CustomButton Three;
@@ -565,8 +606,7 @@
         private Custom.CustomButton Seven;
         private Custom.CustomButton Clear;
         private Custom.CustomButton ClearAllResults;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem вернутьсяToolStripMenuItem;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.CheckBox checkBoxStack16;
+        private Custom.CustomButton buttonShowOrHidePanelButtons;
     }
 }

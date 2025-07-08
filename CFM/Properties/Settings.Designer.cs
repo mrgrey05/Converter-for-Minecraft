@@ -25,13 +25,13 @@ namespace CFM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool IsDarkTheme {
+        [global::System.Configuration.DefaultSettingValueAttribute("Тёмная")]
+        public string IsColorForm {
             get {
-                return ((bool)(this["IsDarkTheme"]));
+                return ((string)(this["IsColorForm"]));
             }
             set {
-                this["IsDarkTheme"] = value;
+                this["IsColorForm"] = value;
             }
         }
         
@@ -56,6 +56,52 @@ namespace CFM.Properties {
             }
             set {
                 this["Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsOtherRemainder {
+            get {
+                return ((bool)(this["IsOtherRemainder"]));
+            }
+            set {
+                this["IsOtherRemainder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color ThemeCustomForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ThemeCustomForeColor"]));
+            }
+            set {
+                this["ThemeCustomForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color ThemeCustomBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ThemeCustomBackColor"]));
+            }
+            set {
+                this["ThemeCustomBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.5")]
+        public string Version {
+            get {
+                return ((string)(this["Version"]));
+            }
+            set {
+                this["Version"] = value;
             }
         }
     }
