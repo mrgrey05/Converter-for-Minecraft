@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="IsColorForm" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Тёмная</Value>
+      <Value Profile="(Default)">Dark</Value>
     </Setting>
     <Setting Name="IsBigSizeFont" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -21,7 +21,22 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">v0.5</Value>
+      <Value Profile="(Default)">v0.6</Value>
+    </Setting>
+    <Setting Name="SavedTextBoxConvert1" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SavedComboBoxIndex1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SavedTextBoxConvert2" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SavedComboBoxIndex2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ColorPickerPosition" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">1, 1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

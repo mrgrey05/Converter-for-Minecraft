@@ -186,9 +186,6 @@
   <data name="ReferenceAboutUs" xml:space="preserve">
     <value>About us</value>
   </data>
-  <data name="ReferenceFormTitle" xml:space="preserve">
-    <value>Reference</value>
-  </data>
   <data name="ReferenceEmail" xml:space="preserve">
     <value>Mail for communication:</value>
   </data>
@@ -216,11 +213,11 @@
   <data name="PointDigit" xml:space="preserve">
     <value>.</value>
   </data>
-  <data name="ThemeCustomChoiceColor" xml:space="preserve">
+  <data name="ThemeCustomFormText" xml:space="preserve">
     <value>Color selection</value>
   </data>
-  <data name="ThemeCustomAppearance" xml:space="preserve">
-    <value>Appearance</value>
+  <data name="ThemeCustomButtonText" xml:space="preserve">
+    <value>Button</value>
   </data>
   <data name="ThemeCustomText" xml:space="preserve">
     <value>Text</value>

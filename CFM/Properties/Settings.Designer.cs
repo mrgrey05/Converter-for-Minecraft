@@ -25,7 +25,7 @@ namespace CFM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Тёмная")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dark")]
         public string IsColorForm {
             get {
                 return ((string)(this["IsColorForm"]));
@@ -95,13 +95,73 @@ namespace CFM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("v0.5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("v0.6")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
             }
             set {
                 this["Version"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double SavedTextBoxConvert1 {
+            get {
+                return ((double)(this["SavedTextBoxConvert1"]));
+            }
+            set {
+                this["SavedTextBoxConvert1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SavedComboBoxIndex1 {
+            get {
+                return ((int)(this["SavedComboBoxIndex1"]));
+            }
+            set {
+                this["SavedComboBoxIndex1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double SavedTextBoxConvert2 {
+            get {
+                return ((double)(this["SavedTextBoxConvert2"]));
+            }
+            set {
+                this["SavedTextBoxConvert2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SavedComboBoxIndex2 {
+            get {
+                return ((int)(this["SavedComboBoxIndex2"]));
+            }
+            set {
+                this["SavedComboBoxIndex2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1, 1")]
+        public global::System.Drawing.Point ColorPickerPosition {
+            get {
+                return ((global::System.Drawing.Point)(this["ColorPickerPosition"]));
+            }
+            set {
+                this["ColorPickerPosition"] = value;
             }
         }
     }

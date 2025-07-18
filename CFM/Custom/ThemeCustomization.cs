@@ -5,6 +5,11 @@ namespace CFM.Custom
 {
     public static class ThemeCustomization
     {
+        /// <summary>
+        /// Отвечает за затемнение цвета элемента управления
+        /// </summary>
+        /// <param name="color">Цвет</param>
+        /// <returns>Цвет</returns>
         public static Color ColorDarker(Color color)
         {
             int red = color.R;
@@ -23,6 +28,12 @@ namespace CFM.Custom
             Color changedColor = Color.FromArgb(alpha, redChange, greenChange, blueChange);
             return changedColor;
         }
+
+        /// <summary>
+        /// Отвечает за затемнение цвета элемента управления MenuStrip
+        /// </summary>
+        /// <param name="color">Цвет</param>
+        /// <returns>Цвет</returns>
         public static Color ColorDarkerMenu(Color color)
         {
             int red = color.R;
@@ -41,6 +52,12 @@ namespace CFM.Custom
             Color changedColor = Color.FromArgb(alpha, redChange, greenChange, blueChange);
             return changedColor;
         }
+
+        /// <summary>
+        /// Отвечает за затемнение цвета элемента управления CustomButton (Base)
+        /// </summary>
+        /// <param name="color">Цвет</param>
+        /// <returns>Цвет</returns>
         public static Color ColorDarkerBase(Color color)
         {
             int red = color.R;
@@ -59,6 +76,12 @@ namespace CFM.Custom
             Color changedColor = Color.FromArgb(alpha, redChange, greenChange, blueChange);
             return changedColor;
         }
+
+        /// <summary>
+        /// Отвечает за затемнение цвета элемента управления CustomButton (Hover)
+        /// </summary>
+        /// <param name="color">Цвет</param>
+        /// <returns>Цвет</returns>
         public static Color ColorDarkerHover(Color color)
         {
             int red = color.R;
@@ -77,6 +100,12 @@ namespace CFM.Custom
             Color changedColor = Color.FromArgb(alpha, redChange, greenChange, blueChange);
             return changedColor;
         }
+
+        /// <summary>
+        /// Отвечает за затемнение цвета элемента управления CustomButton (Click)
+        /// </summary>
+        /// <param name="color">Цвет</param>
+        /// <returns>Цвет</returns>
         public static Color ColorDarkerClick(Color color)
         {
             int red = color.R;

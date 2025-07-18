@@ -127,13 +127,13 @@
     <value>Andere</value>
   </data>
   <data name="SettingsLabelBigSizeFont" xml:space="preserve">
-    <value>Größere Schriftgröße:</value>
+    <value>Vergrößerte Schrift:</value>
   </data>
   <data name="SettingsLabelLanguage" xml:space="preserve">
     <value>Sprache:</value>
   </data>
   <data name="SettingsLabelTheme" xml:space="preserve">
-    <value>Thema für App:</value>
+    <value>Design der App:</value>
   </data>
   <data name="MainFormTitle" xml:space="preserve">
     <value>Konverter für Minecraft</value>
@@ -148,19 +148,19 @@
     <value>Mini-Fenster          F5</value>
   </data>
   <data name="ThemeLangLight" xml:space="preserve">
-    <value>Licht</value>
+    <value>Hell</value>
   </data>
   <data name="ThemeLangDark" xml:space="preserve">
     <value>Dunkel</value>
   </data>
   <data name="MainExit" xml:space="preserve">
-    <value>Ausfahrt</value>
+    <value>Beenden</value>
   </data>
   <data name="MainFormReference" xml:space="preserve">
-    <value>Referenz</value>
+    <value>Über</value>
   </data>
   <data name="SettingsBtnCancel" xml:space="preserve">
-    <value>Stornieren</value>
+    <value>Abbrechen</value>
   </data>
   <data name="ConverterBlock" xml:space="preserve">
     <value>Block</value>
@@ -181,28 +181,25 @@
     <value>Blöcke</value>
   </data>
   <data name="ConverterStacks" xml:space="preserve">
-    <value>stuckey</value>
+    <value>stapel</value>
   </data>
   <data name="ReferenceAboutUs" xml:space="preserve">
     <value>Über uns</value>
   </data>
-  <data name="ReferenceFormTitle" xml:space="preserve">
-    <value>Referenz</value>
-  </data>
   <data name="ReferenceEmail" xml:space="preserve">
-    <value>Mail zur Kommunikation:</value>
+    <value>Kontakt-E-Mail:</value>
   </data>
   <data name="ReferenceVersion" xml:space="preserve">
-    <value>Anwendungsversion:</value>
+    <value>App-Version:</value>
   </data>
   <data name="SmallWindowBack" xml:space="preserve">
     <value>Zurück</value>
   </data>
   <data name="MainFormTopMost" xml:space="preserve">
-    <value>Oben auf anderen Fenstern</value>
+    <value>Immer im Vordergrund</value>
   </data>
   <data name="SettingsOtherRemainder" xml:space="preserve">
-    <value>Andernfalls "rest"</value>
+    <value>Alternativer Rest</value>
   </data>
   <data name="ConverterShulkers" xml:space="preserve">
     <value>Shulkers</value>
@@ -216,11 +213,11 @@
   <data name="PointDigit" xml:space="preserve">
     <value>,</value>
   </data>
-  <data name="ThemeCustomChoiceColor" xml:space="preserve">
-    <value>Color selection</value>
+  <data name="ThemeCustomFormText" xml:space="preserve">
+    <value>Farbauswahl</value>
   </data>
-  <data name="ThemeCustomAppearance" xml:space="preserve">
-    <value>Aussehen</value>
+  <data name="ThemeCustomButtonText" xml:space="preserve">
+    <value>Knopf</value>
   </data>
   <data name="ThemeCustomText" xml:space="preserve">
     <value>Text</value>

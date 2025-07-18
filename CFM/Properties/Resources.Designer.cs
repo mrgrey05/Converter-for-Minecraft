@@ -223,15 +223,6 @@ namespace CFM.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Reference.
-        /// </summary>
-        internal static string ReferenceFormTitle {
-            get {
-                return ResourceManager.GetString("ReferenceFormTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Application version:.
         /// </summary>
         internal static string ReferenceVersion {
@@ -331,20 +322,20 @@ namespace CFM.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Appearance.
+        ///   Ищет локализованную строку, похожую на Button.
         /// </summary>
-        internal static string ThemeCustomAppearance {
+        internal static string ThemeCustomButtonText {
             get {
-                return ResourceManager.GetString("ThemeCustomAppearance", resourceCulture);
+                return ResourceManager.GetString("ThemeCustomButtonText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Color selection.
         /// </summary>
-        internal static string ThemeCustomChoiceColor {
+        internal static string ThemeCustomFormText {
             get {
-                return ResourceManager.GetString("ThemeCustomChoiceColor", resourceCulture);
+                return ResourceManager.GetString("ThemeCustomFormText", resourceCulture);
             }
         }
         

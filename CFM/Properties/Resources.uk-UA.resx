@@ -127,7 +127,7 @@
     <value>Iнше</value>
   </data>
   <data name="SettingsLabelBigSizeFont" xml:space="preserve">
-    <value>Більший розмір шрифту:</value>
+    <value>Збільшений шрифт:</value>
   </data>
   <data name="SettingsLabelLanguage" xml:space="preserve">
     <value>Мова:</value>
@@ -148,10 +148,10 @@
     <value>Міні-вікно              F5</value>
   </data>
   <data name="ThemeLangLight" xml:space="preserve">
-    <value>Cвітло</value>
+    <value>Світла</value>
   </data>
   <data name="ThemeLangDark" xml:space="preserve">
-    <value>Темний</value>
+    <value>Темна</value>
   </data>
   <data name="MainExit" xml:space="preserve">
     <value>Вихід</value>
@@ -163,13 +163,13 @@
     <value>Скасувати</value>
   </data>
   <data name="ConverterBlock" xml:space="preserve">
-    <value>Блокувати</value>
+    <value>Блок</value>
   </data>
   <data name="ConverterStack" xml:space="preserve">
     <value>Стек</value>
   </data>
   <data name="ConverterShulker" xml:space="preserve">
-    <value>Шулкер</value>
+    <value>Шалкер</value>
   </data>
   <data name="MainFormRemainder" xml:space="preserve">
     <value>Залишок</value>
@@ -186,9 +186,6 @@
   <data name="ReferenceAboutUs" xml:space="preserve">
     <value>Про нас</value>
   </data>
-  <data name="ReferenceFormTitle" xml:space="preserve">
-    <value>Довідка</value>
-  </data>
   <data name="ReferenceEmail" xml:space="preserve">
     <value>Пошта для зв'язку:</value>
   </data>
@@ -199,16 +196,16 @@
     <value>Назад</value>
   </data>
   <data name="MainFormTopMost" xml:space="preserve">
-    <value>Верх інших вікон</value>
+    <value>Поверх усіх вікон</value>
   </data>
   <data name="SettingsOtherRemainder" xml:space="preserve">
-    <value>В іншому випадку «залишок»</value>
+    <value>Залишок "по-іншому"</value>
   </data>
   <data name="ConverterShulkers" xml:space="preserve">
-    <value>шулкери</value>
+    <value>шалкери</value>
   </data>
   <data name="ThemeLangCustom" xml:space="preserve">
-    <value>&lt;Користувацький...&gt;</value>
+    <value>&lt;Користувацька...&gt;</value>
   </data>
   <data name="MainFormStackX16" xml:space="preserve">
     <value>Стек (x16)</value>
@@ -216,11 +213,11 @@
   <data name="PointDigit" xml:space="preserve">
     <value>,</value>
   </data>
-  <data name="ThemeCustomChoiceColor" xml:space="preserve">
+  <data name="ThemeCustomFormText" xml:space="preserve">
     <value>Вибір кольору</value>
   </data>
-  <data name="ThemeCustomAppearance" xml:space="preserve">
-    <value>Зовнішній вигляд</value>
+  <data name="ThemeCustomButtonText" xml:space="preserve">
+    <value>Кнопка</value>
   </data>
   <data name="ThemeCustomText" xml:space="preserve">
     <value>Текст</value>
