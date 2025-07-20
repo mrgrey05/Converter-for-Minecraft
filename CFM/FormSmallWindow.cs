@@ -57,8 +57,7 @@ namespace CFM
             isConverting = true;
 
             TextBox textBox = (TextBox)sender;
-            ConversionHelper.HandleTextBoxTextChanged(textBox, ref isConverting, ref shouldResetOnNextInput, ref isContentSelected);
-            ConversionHelper.PerformConversion(this, textBox, checkBoxStack16.Checked);
+            ConversionHelper.HandleTextBoxTextChanged(this, textBox, isConverting, shouldResetOnNextInput, isContentSelected, checkBoxStack16.Checked);
 
             isConverting = false;
         }

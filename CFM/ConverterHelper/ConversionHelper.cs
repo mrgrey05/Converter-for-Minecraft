@@ -212,7 +212,7 @@ namespace CFM.ConverterHelper
                 {
                     textBox.Text = "";
                     int selectionTextBox = textBox.SelectionStart;
-                    textBox.Text = textBox.Text.Insert(selectionTextBox, valueClipboard);
+                    textBox.Text = valueClipboard;
                     textBox.SelectionStart = selectionTextBox + valueClipboard.Length;
                     e.SuppressKeyPress = true;
                 }
@@ -235,7 +235,7 @@ namespace CFM.ConverterHelper
         /// <param name="isConverting">Момент конвертации</param>
         /// <param name="shouldResetOnNextInput">Булевое значение, необходимое для сброса при следующем вводе</param>
         /// <param name="isContentSelected">Булевое значение, необходимо для понимания, выделено ли число</param>
-        public static void HandleTextBoxTextChanged(TextBox textBox, ref bool isConverting, ref bool shouldResetOnNextInput, ref bool isContentSelected)
+        public static void HandleTextBoxTextChanged(Form form, TextBox textBox, bool isConverting, bool shouldResetOnNextInput, bool isContentSelected, bool checkBoxStack16Checked)
         {
             string text = textBox.Text;
 
@@ -272,7 +272,8 @@ namespace CFM.ConverterHelper
                     shouldResetOnNextInput = false;
                     isContentSelected = false;
                     isConverting = false;
-                    return;
+                    textBox.Text = "0";
+                    textBox.SelectionStart = textBox.Text.Length;
                 }
             }
             if (Properties.Settings.Default.Language == "en-US")
@@ -297,6 +298,8 @@ namespace CFM.ConverterHelper
                 textBox.Text = "0";
                 textBox.SelectionStart = textBox.Text.Length;
             }
+
+            PerformConversion(form, textBox, checkBoxStack16Checked);
         }
     }
 }
